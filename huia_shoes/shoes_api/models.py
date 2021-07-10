@@ -33,7 +33,7 @@ class Product(models.Model):
 
 class Client(models.Model):
     name = models.CharField(max_length=200)
-    cpf = models.CharField(max_length=11)
+    cpf = models.CharField(max_length=14)
     birth_date = models.DateField()
     
     def __str__(self):
@@ -43,6 +43,7 @@ class Client(models.Model):
 class Order(models.Model):
     order_number = models.IntegerField()
     client = models.ForeignKey(Client, on_delete=models.PROTECT)
+    order_date = models.DateField()
     seller = models.CharField(max_length=50)
     products = models.ManyToManyField(Product)
     total_value = models.FloatField()

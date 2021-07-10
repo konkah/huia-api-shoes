@@ -1,8 +1,7 @@
 from .models import Batch, Product, Client, Order
-from .serializers import BatchSerializer, ProductSerializer, ClientSerializer, OrderSerializer
+from .serializers import BatchSerializer, ProductSerializer, ClientSerializer, OrderSerializer, ListOrderSerializer
 from rest_framework import viewsets
-from rest_framework.decorators import action
-from rest_framework.response import Response
+from rest_framework.permissions import SAFE_METHODS
 
 
 class BatchViewSet(viewsets.ModelViewSet):
@@ -19,4 +18,9 @@ class ClientViewSet(viewsets.ModelViewSet):
 
 class OrderViewSet(viewsets.ModelViewSet):
     queryset = Order.objects.all()
-    serializer_class = OrderSerializer
+    ordering_fields = ['value', 'order_date']
+
+    def get_serializer_class(self):
+        if self.request.method in SAFE_METHODS:
+            return ListOrderSerializer
+        return OrderSerializer

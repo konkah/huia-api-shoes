@@ -50,7 +50,21 @@ class OrderSerializer(serializers.ModelSerializer):
         fields = [
             'order_number',
             'client',
+            'order_date',
             'seller',
             'products',
             'total_value',
         ]
+
+class ListOrderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Order
+        fields = [
+            'order_number',
+            'client',
+            'order_date',
+            'seller',
+            'products',
+            'total_value',
+        ]
+        depth = 1
