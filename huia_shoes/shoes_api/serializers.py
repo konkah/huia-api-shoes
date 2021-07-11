@@ -55,9 +55,6 @@ class ClientSerializer(serializers.ModelSerializer):
                 'Não é um CPF válido!'
             )
         return value
-
-    def set_cpf(self, obj, value):
-        obj.cpf = 'value'
     
 
 class OrderSerializer(serializers.ModelSerializer):
