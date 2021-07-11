@@ -70,8 +70,17 @@ class OrderSerializer(serializers.ModelSerializer):
             'order_date',
             'seller',
             'products',
-            'total_value',
         ]
+
+    def to_internal_value(self, data):
+        data = super(OrderSerializer, self).to_internal_value(data)
+
+        total_value = 0
+        for product in data['products']:
+            total_value = total_value + product.value
+        data['total_value'] = total_value
+
+        return data
 
 class ListOrderSerializer(serializers.ModelSerializer):
     class Meta:

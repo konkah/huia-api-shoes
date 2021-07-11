@@ -44,16 +44,9 @@ class Order(models.Model):
     order_number = models.IntegerField()
     client = models.ForeignKey(Client, on_delete=models.PROTECT)
     order_date = models.DateField()
+    total_value = models.FloatField()
     seller = models.CharField(max_length=50)
     products = models.ManyToManyField(Product)
-
-    @property
-    def total_value(self):
-        total = 0
-        for product in self.products.all():
-            total = total + product.value
-        
-        return total
     
     def __str__(self):
         return self.order_number + ' - ' + self.total_value

@@ -18,7 +18,7 @@ class ClientViewSet(viewsets.ModelViewSet):
 
 class OrderViewSet(viewsets.ModelViewSet):
     queryset = Order.objects.all()
-    ordering_fields = ['value', 'order_date']
+    ordering_fields = ['total_value', 'order_date']
 
     def get_serializer_class(self):
         if self.request.method in SAFE_METHODS:
