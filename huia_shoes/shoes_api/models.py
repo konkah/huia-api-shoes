@@ -33,7 +33,7 @@ class Product(models.Model):
 
 class Client(models.Model):
     name = models.CharField(max_length=200)
-    cpf = models.CharField(max_length=11, unique=True)
+    cpf = models.CharField(max_length=14, unique=True)
     birth_date = models.DateField()
 
     def __str__(self):

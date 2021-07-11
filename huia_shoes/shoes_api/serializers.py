@@ -47,7 +47,7 @@ class ClientSerializer(serializers.ModelSerializer):
             'cpf',
             'birth_date',
         ]
-    
+
     def validate_cpf(self, value):
         cpf = CPF()
         if not cpf.validate(value):
