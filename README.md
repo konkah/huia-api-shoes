@@ -4,7 +4,19 @@ autor: Karlos Helton Braga
 
 ## Como rodar o projeto
 
-<!-- Montar o docker com superuser admin/admin e colocar as instruções aqui -->
+A máquina docker para rodar o projeto está disponível no dockerhub.
+
+```
+docker run --name huia -it -p 8000:8000 konkah/huia_shoes
+```
+
+Para sair, aperte CTRL+C.
+
+Caso queira fazer o build a partir do dockerfile disponível no repositório, execute:
+
+```
+dockerbuild . -f huia.Dockerfile -t konkah/huia_shoes --network=host
+```
 
 ## Como utilizar a api
 
@@ -20,7 +32,7 @@ autor: Karlos Helton Braga
 
 ### Usado usuário do django como cadastro do vendedor
 
-Para que o vendedor tenha login e senha, foi usado o usuário nativo do django admin.
+Para o vendedor ter login e senha, foi usado o usuário nativo do django admin.
 
 ### CPF colocado com 14 dígitos
 
