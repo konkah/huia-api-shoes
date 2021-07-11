@@ -33,9 +33,11 @@ mesmo eles sendo removidos antes de ir para o banco de dados, se o CPF não tive
 ### Django Rest Framework (3.12.4)
 
 Usada para facilitar o desenvolvimento da API.
-[https://www.django-rest-framework.org/]
+
+(https://www.django-rest-framework.org/)
 
 ### Validate DOC BR (1.8.2)
 
 Usada para validar o CPF do cliente.
-[https://pypi.org/project/validate-docbr/]
+
+(https://pypi.org/project/validate-docbr/)
