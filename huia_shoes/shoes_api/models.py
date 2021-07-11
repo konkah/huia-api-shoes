@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Batch(models.Model):
@@ -45,7 +46,7 @@ class Order(models.Model):
     client = models.ForeignKey(Client, on_delete=models.PROTECT)
     order_date = models.DateField()
     total_value = models.FloatField()
-    seller = models.CharField(max_length=50)
+    seller = models.ForeignKey(User, on_delete=models.PROTECT)
     products = models.ManyToManyField(Product)
     
     def __str__(self):

@@ -82,7 +82,27 @@ class OrderSerializer(serializers.ModelSerializer):
 
         return data
 
+    def to_representation(self, data):
+        data = super(OrderSerializer, self).to_representation(data)
+
+        data['seller'] = data['seller'].to_string()
+
+        return data
+
+
 class ListOrderSerializer(serializers.ModelSerializer):
+    def to_representation(self, data):
+        data = super(ListOrderSerializer, self).to_representation(data)
+
+        first_name = data['seller']['first_name']
+        last_name = data['seller']['last_name']
+        username = data['seller']['username']
+        data['seller'] = first_name + ' ' + last_name + ' (' + username + ')'
+
+        data['seller'] = data['seller'].strip()
+
+        return data
+
     class Meta:
         model = Order
         fields = [
