@@ -20,6 +20,8 @@ docker build . -f huia.Dockerfile -t konkah/huia_shoes --network=host
 
 ## Como utilizar a api
 
+O endereço da API depende do IP da máquina docker. Usualmente, o docker sobe a máquina no IP 172.17.0.2. A porta da API é 8000. Nesse caso, o endereço final da API é: http://172.17.0.2:8000.
+
 Só é possível utilizar a API com login. O usuário **admin** com senha **admin** é inserido na criação da máquina em docker, para facilitar a manipulação da API.
 
 O tipo de autenticação usada é o Basic Authentication. É possível entender como ela funciona no seguinte link:
