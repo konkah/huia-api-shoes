@@ -79,14 +79,6 @@ class OrderSerializer(serializers.ModelSerializer):
 
         return data
 
-    def to_representation(self, data):
-        data = super(OrderSerializer, self).to_representation(data)
-
-        data['seller'] = data['seller'].to_string()
-
-        return data
-
-
 class ListOrderSerializer(serializers.ModelSerializer):
     def to_representation(self, data):
         data = super(ListOrderSerializer, self).to_representation(data)
