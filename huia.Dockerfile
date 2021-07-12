@@ -30,7 +30,7 @@ RUN python3 manage.py migrate
 ENV DJANGO_SUPERUSER_USERNAME=admin
 ENV DJANGO_SUPERUSER_EMAIL=karlos.hbraga@gmail.com
 ENV DJANGO_SUPERUSER_PASSWORD=admin
-RUN python3 manage.py createsuperuser
+RUN python3 manage.py createsuperuser --no-input
 
 EXPOSE 8000
 
