@@ -16,6 +16,7 @@ RUN apt install python3-pip -y
 RUN apt install python3-dev -y 
 
 COPY huia_shoes /var/www/huia_shoes
+RUN rm /var/www/huia_shoes/db.sqlite3
 
 RUN python3 -m pip install -U pip
 RUN python3 -m pip install -U setuptools
